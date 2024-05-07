@@ -18,7 +18,7 @@ const vipSchema = new mongoose.Schema({
   // 2. MORE
   nickname: { type: String },
   myTags: [{ type: String }],
-  progress: [{type: Number()}, {type: Date}]
+  progress: [{ type: Number }, {type: Date}]
   },
   {
     timestamps: {
@@ -39,7 +39,7 @@ vipSchema
 vipSchema
   .pre('validate', function (next) {
     if (this.isModified('password') && this.password !== this._passwordConfirmation) {
-      this.invalidate('passwordConfirmation', '👯‍♂️ The password and the password confirmation need to be the same.')
+      this.invalidate('passwordConfirmation', '👯‍♂️ Found a double trouble... the password and the password confirmation need to be the same.')
     }
     next()
   })
