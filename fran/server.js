@@ -9,9 +9,6 @@ import mongoose from 'mongoose'
 import 'dotenv/config'
 import router from './lib/router.js'
 
-// Import Model
-import JournalEntry from './models/journalEntry.js'
-
 const app = express()
 const { PORT, CONNECTION_STRING } = process.env
 // console.log(process.env)
@@ -20,7 +17,7 @@ const { PORT, CONNECTION_STRING } = process.env
 app.use(express.json())
 app.use(morgan('dev'))
 
-// * Routes
+// Routes
 app.use('/api', router)
 
 // Start server

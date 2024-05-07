@@ -4,28 +4,32 @@ import jwt from 'jsonwebtoken'
 
 import { journalIndex, journalShow, journalCreate, journalUpdate, journalDelete } from '../controllers/journalEntries.js'
 import { register, login, vipAccount, vipAccountEdit, vipAccountDelete } from '../controllers/vips.js'
-// import secureRoute from './secureRoute.js'
+import secureRoute from './secureRoute.js'
 
 const router = Router()
 
+// * JOURNALS
+
 router.route('/journals')
-  .get(journalIndex)
-  .post(journalCreate)
+  .get(secureRoute, journalIndex)
+  .post(secureRoute, journalCreate)
 
 router.route('/journals/:journalId')
-  .get(journalShow)
-  .put(journalUpdate)
-  .delete(journalDelete)
+  .get(secureRoute, journalShow)
+  .put(secureRoute, journalUpdate)
+  .delete(secureRoute, journalDelete)
 
-router.route('/account/register')
+  // * ACCOUNTS
+
+router.route('/accounts/register')
   .post(register)
 
-router.route('/account/login')
+router.route('/accounts/login')
   .post(login)
 
-router.route('/account/:vipId')
-  .get(vipAccount)
-  .put(vipAccountEdit)
-  .delete(vipAccountDelete)
+router.route('/accounts/:vipId')
+  .get(secureRoute, vipAccount)
+  .put(secureRoute, vipAccountEdit)
+  .delete(secureRoute, vipAccountDelete)
 
 export default router

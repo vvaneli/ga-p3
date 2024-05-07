@@ -64,7 +64,7 @@ export const vipAccount = async (req, res) => {
     const foundVip = await Vip.findById(vipId)
 
     // If item not found, send 404
-    if (!foundVip) return res.status(404).json({ message: 'Account not found' })
+    if (!foundVip) return res.status(404).json({ message: '🫥 Account not found' })
 
     // Otherwise (if item found), send item as 200
     return res.status(200).json(foundVip)
@@ -79,12 +79,12 @@ export const vipAccount = async (req, res) => {
 // * Update Route (edit account details)
 // Path: PUT /api/account/:id
 export const vipAccountEdit = async (req, res) => {
-  console.log('At Account Update Route')
+  console.log('At Account Edit Route')
   try {
     const { vipId } = req.params
     const vipDocument = await Vip.findById(vipId)
     // If item not found, send 404
-    if (!vipDocument) return res.status(404).json({ message: 'Account not found' })
+    if (!vipDocument) return res.status(404).json({ message: '🫥 Account not found' })
     // Update the target object (from the db) with the source (req.body)
     Object.assign(vipDocument, req.body)
     // Save the update requested
@@ -105,7 +105,7 @@ export const vipAccountDelete = async (req, res) => {
   try {
     const { vipId } = req.params
     const deletedVip = await Vip.findByIdAndDelete(vipId)
-    if (!deletedVip) return res.status(404).json({ message: 'Account not found' })
+    if (!deletedVip) return res.status(404).json({ message: '🫥 Account not found' })
       return res.sendStatus(204) // 204 cannot return a message
   } catch (error) {
       console.log(error)
