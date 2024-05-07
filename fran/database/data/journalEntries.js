@@ -1,6 +1,5 @@
 export default [
   {
-    timestampNew: 1713956400,
     tags: ['cooking', 'useless', 'avoid'],
     images: [],
     sticker: '',
@@ -18,11 +17,10 @@ export default [
     specific: 'There are lots of other recipes I\'m good at making. I\'ve only had trouble with this one. That doesn\'t make me a bad cook.'
   },
   {
-    timestampNew: 1713600000,
     tags: ['cooking', 'useless', 'avoid'],
     images: [],
     sticker: '',
-    title: '',
+    title: 'Laptop stickers',
     situation: 'I tried a new recipe using ingredients I\'ve never used before. It doesn\'t taste like it\'s supposed to!! My friend doesn\'t like it.',
     feeling1: ['😭'],
     feeling1Rate: 7,
@@ -36,7 +34,6 @@ export default [
     specific: ''
   },
   {
-    timestampNew: 1713894199,
     tags: ['cooking', 'useless', 'avoid'],
     images: [],
     sticker: '',

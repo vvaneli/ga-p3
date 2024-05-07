@@ -7,6 +7,7 @@ import express from 'express'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
 import 'dotenv/config'
+import router from './lib/router.js'
 
 // Import Model
 import JournalEntry from './models/journalEntry.js'
@@ -18,6 +19,9 @@ const { PORT, CONNECTION_STRING } = process.env
 // Generic Middleware
 app.use(express.json())
 app.use(morgan('dev'))
+
+// * Routes
+app.use('/api', router)
 
 // Start server
 async function startServers() {

@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 
 const journalSchema = new mongoose.Schema({
-  // timestampNew: {type: Date, required: true},
-  // timestampEdited: {type: Date},
   tags: [{ type: String }],
   images: [{ type: String }],
   sticker: { type: String },
@@ -19,6 +17,7 @@ const journalSchema = new mongoose.Schema({
   global: { type: String },
   specific: { type: String }
 },
+// Options https://mongoosejs.com/docs/guide.html#options
   {
     timestamps: {
       createdAt: 'timestampNew',

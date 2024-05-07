@@ -18,7 +18,6 @@ async function seedData() {
     // 3. Add seed data to DB
     const seededData = await JournalEntry.create(journalSeedData)
     console.log('3. ADD: seededData -- ' + seededData.length + ' added, as follows: ' + seededData)
-
     // 4. Close DB connection
     await mongoose.connection.close()
     console.log('4. DATABASE: disconnected')
