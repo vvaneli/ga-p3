@@ -25,7 +25,7 @@ async function startServers() {
     // Connect to database (MongoDB Atlas)
     await mongoose.connect(CONNECTION_STRING)
     // Start Express server listening
-    app.listen(PORT, () => console.log(`SERVER up and running on port ${PORT}`))
+    app.listen(PORT, () => console.log(`SERVER: up and running on port ${PORT}`))
   } catch (error) {
     console.log(error)
   }
