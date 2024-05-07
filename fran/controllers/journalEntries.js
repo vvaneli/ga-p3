@@ -5,7 +5,7 @@ import JournalEntry from '../models/journalEntry.js'
 
 
 // * Index Route (HOME)
-// Path: /api/journals
+// Path: GET /api/journals
 export const journalIndex = async (req, res) => {
   try {
     const foundJournals = await JournalEntry.find()
@@ -18,7 +18,7 @@ export const journalIndex = async (req, res) => {
 }
 
 // * Create Route (ADD NEW)
-// Path: /api/journals
+// Path: POST /api/journals
 export const journalCreate = async (req, res) => {
   try {
     const newJournalEntry = await JournalEntry.create(req.body) // req.body is the JSON body sent by the user
@@ -30,7 +30,7 @@ export const journalCreate = async (req, res) => {
 }
 
 // * Show Route (RETRIEVE)
-// Path: /api/journals/:journalId
+// Path: GET /api/journals/:journalId
 export const journalShow = async (req, res) => {
   try {
     const { journalId } = req.params
@@ -46,7 +46,7 @@ export const journalShow = async (req, res) => {
 }
 
 // * Update Route (EDIT)
-// Path: /api/journals/:journalId
+// Path: PUT /api/journals/:journalId
 export const journalUpdate = async (req, res) => {
   try {
     const { journalId } = req.params
@@ -69,7 +69,7 @@ export const journalUpdate = async (req, res) => {
 }
 
 // * Delete Route (DELETE)
-// Path: /api/journals/:journalId
+// Path: DELETE /api/journals/:journalId
 export const journalDelete = async (req, res) => {
   try {
     const { journalId } = req.params
