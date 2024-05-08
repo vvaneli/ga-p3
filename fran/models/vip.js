@@ -19,7 +19,8 @@ const vipSchema = new mongoose.Schema({
 
   // 2. More
   tags: [{ type: String }],
-  progress: [{ type: Number }, { type: Date }, { type: Boolean }]
+  progress: [{ type: Number }, { type: Date }, { type: Boolean }],
+  progressCounter: {type: Number},
 },
   { timestamps: true }
 )
