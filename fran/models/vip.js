@@ -19,19 +19,29 @@ const vipSchema = new mongoose.Schema({
 
   // 2. More
   tags: [{ type: String }],
-  progress: [ { type: Number }, { type: Date }, {type: Boolean} ]
+  progress: [{ type: Number }, { type: Date }, { type: Boolean }]
 },
-{ timestamps: true }
+  { timestamps: true }
 )
 
 // Model
 
+// remove the password from json responses
+vipSchema.set('toJSON', {
+  virtuals: true,
+  transform(_doc, json) {
+    delete json.password;
+  },
+});
+
+// password confirmation
 vipSchema
   .virtual('passwordConfirmation')
   .set(function (value) {
     this._passwordConfirmation = value
   })
 
+// password validation
 vipSchema
   .pre('validate', function (next) {
     if (this.isModified('password') && this.password !== this._passwordConfirmation) {
@@ -40,6 +50,7 @@ vipSchema
     next()
   })
 
+// if validaed, has the password and save it to the database
 vipSchema
   .pre('save', function (next) {
     if (this.isModified('password')) {
