@@ -1,29 +1,42 @@
 import mongoose from 'mongoose'
 
-const journalSchema = new mongoose.Schema({
+// Options https://mongoosejs.com/docs/guide.html#options
+
+const journalEntrySchema = new mongoose.Schema({
   tags: [{ type: String }],
   images: [{ type: String }],
   sticker: { type: String },
   title: { type: String },
   situation: { type: String, required: [true, 'This is a required field'] },
-  feeling1: [{ type: String, required: [true, 'This is a required field'] }],
-  feeling1Rate: { type: Number, required: [true, 'This is a required field'] },
-  feeling2: [{ type: String }],
-  feeling2Rate: { type: Number },
-  internal: { type: String, required: [true, 'This is a required field'] },
-  external: { type: String },
-  permanent: { type: String },
-  temporary: { type: String },
-  global: { type: String },
-  specific: { type: String }
+  reaction: [journalReactSchema],
+  reflection: [journalReflectSchema],
+  vipId: { type: mongoose.ObjectId, ref: "vips", required: true }
 },
-// Options https://mongoosejs.com/docs/guide.html#options
-  {
-    timestamps: {
-      createdAt: 'timestampNew',
-      updatedAt: 'timestampEdited'
-    }
-  }
+{ timestamps: true }
 )
 
-export default mongoose.model('JournalEntry', journalSchema)
+const journalReactSchema = new mongoose.Schema({
+  feeling1: [{ type: String, required: [true, 'This is a required field'] }],
+  feeling1Rate: { type: Number, min: 1, max: 10, required: [true, 'This is a required field'] },
+  internal: { type: String, required: [true, 'This is a required field'] },
+  permanent: { type: String },
+  global: { type: String },
+  notes: { type: String },
+  vipId: { type: mongoose.ObjectId, ref: "vips", required: true }
+},
+{ timestamps: true }
+)
+
+const journalReflectSchema = new mongoose.Schema({
+  feeling2: [{ type: String, required: [true, 'This is a required field'] }],
+  feeling2Rate: { type: Number, min: 1, max: 10, required: [true, 'This is a required field'] },
+  external: { type: String },
+  temporary: { type: String },
+  specific: { type: String },
+  notes: { type: String },
+  vipId: { type: mongoose.ObjectId, ref: "vips", required: true }
+},
+{ timestamps: true }
+)
+
+export default mongoose.model('JournalEntry', journalEntrySchema)

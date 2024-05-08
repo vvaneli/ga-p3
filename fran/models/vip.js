@@ -3,29 +3,25 @@ import bcrypt from 'bcryptjs'
 
 // User schema
 const vipSchema = new mongoose.Schema({
-// 1. CORE
+  // 1. Core
   username: {
-  type: String, required: [true, '🪪 A username is necessary to create an account.'],
-  unique: [true, 'That username is taken, try a different one.']},
+    type: String, required: [true, '🪪 A nickname is necessary to create an account. You can change this later.']
+  },
 
   email: {
-  type: String, required: [true, '📮 An email address is necessary to create an account.'],
-  unique: [true, '🤦 This email is already registered.']},
-  
-  password: {
-  type: String, required: [true, '🤫 A password is necessary to create an account.'] },
-
-  // 2. MORE
-  nickname: { type: String },
-  myTags: [{ type: String }],
-  progress: [{ type: Number }, {type: Date}]
+    type: String, required: [true, '📮 An email address is necessary to create an account.'],
+    unique: [true, '🤦 This email is already registered.']
   },
-  {
-    timestamps: {
-      createdAt: 'timestampJoin',
-      updatedAt: 'timestampUpdated'
-    }
-  }
+
+  password: {
+    type: String, required: [true, '🤫 A password is necessary to create an account.']
+  },
+
+  // 2. More
+  tags: [{ type: String }],
+  progress: [ { type: Number }, { type: Date }, {type: Boolean} ]
+},
+{ timestamps: true }
 )
 
 // Model
