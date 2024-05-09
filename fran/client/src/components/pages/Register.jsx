@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { setToken } from '../../../../lib/auth'
@@ -16,38 +16,27 @@ export default function Register() {
     passwordConfirm: '',
     legal: false
   })
-  const [error, setError] = useState('')
+  const [formError, setFormError] = useState()
 
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   async function register() {
-  //     try {
-  //       const { data } = await axios.post('/api/accounts/register')
-  //       console.log(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   register()
-  // }, [])
-
-  async function handleRegister(e, token) {
+  async function handleRegister(e) {
     e.preventDefault()
     try {
-      await axios.post('/api/accounts/register', registerFormData)
+      const { data: {token} } = await axios.post('/api/accounts/register', registerFormData)
       setToken(token)
       navigate('/dashboard')
     } catch (error) {
       console.log(error)
       // console.log(error.response.data.message)
-      // setError(error.response.data.message)
+      setFormError(error.response.data.message)
     }
   }
 
   function handleChange(e){
     setRegisterFormData({ ...registerFormData, [e.target.name]: e.target.value })
-    setError('')
+    setFormError('')
+    console.log(registerFormData, formError)
   }
 
   return (
@@ -65,6 +54,7 @@ export default function Register() {
         <input type='passwordConfirm' placeholder='Confirm Password' name='passwordConfirm' id='passwordConfirm' value={registerFormData.passwordConfirm} onChange={handleChange} required />
 
         <label><input type='checkbox' name='legal' value={registerFormData.legal} onChange={handleChange} required />I agree</label>
+        {formError && <p><em>{formError}</em></p>}
         <button type='submit'>Register</button>
       </form>
       <Link to={'/login'}>Log in</Link>
