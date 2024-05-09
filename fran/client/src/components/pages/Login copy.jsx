@@ -4,18 +4,11 @@ import axios from 'axios'
 import { setToken } from '../../../../lib/auth'
 
 export default function Login() {
-  
 
   const [loginFormData, setLoginFormData] = useState({
     email: '',
     password: ''
   })
-
-  // const [loginFormData, setLoginFormData] = useState({ email: 0, password: 0 })
-  // const [loginFormData, setLoginFormData] = useState({})
-// 
-  // const [loginFormData, setLoginFormData] = useState('')
-  const [error, setError] = useState('')
 
   const navigate = useNavigate()
 
@@ -34,12 +27,12 @@ export default function Login() {
   async function handleLoginSubmit(e) {
     e.preventDefault()
     try {
-      // await axios.post('/api/accounts/login', loginFormData)
-      // const { data: { token } } = await axios.post('/api/accounts/login', loginFormData)
+      // const data = await axios.post(CONNECTION_STRING, loginFormData)
+      const { data: { token } } = await axios.post('/api/accounts/login', loginFormData)
       // console.log(data)
       // If successful:
-      // setToken(token) // save token to localStorage
-      // navigate('/dashboard')
+      setToken(token) // save token to localStorage
+      navigate('/dashboard')
     } catch (error) {
       console.log(error)
       // console.log(error.response.data.message)
@@ -47,22 +40,19 @@ export default function Login() {
     }
   }
 
-  function handleChange(e){
-    setLoginFormData({ ...loginFormData, [e.target.name]: e.target.value })
-    setError('') // resets the error when typing into a form field
-  }
-
   return (
     <>
       <h1>Log in</h1>
-      <form onSubmit={handleLoginSubmit}>
+      <form>
         <label htmlFor='email'>E-mail</label>
-        <input type='email' placeholder='hello@fran.me' name='email' id='email' value={loginFormData.email} onChange={handleChange} required />
+        <input type='email' placeholder='hello@fran.me' name='email' value={loginFormData} required />
+
         <label htmlFor='password'>Password</label>
-        <input type='password' placeholder='Enter Password' name='password' id='password' value={loginFormData.password} onChange={handleChange} required />
-        <button type='submit'>Log in</button>
+        <input type='password' placeholder='Enter Password' name='password' value={loginFormData} required />
+
+        <button type='submit' onChange={handleLoginSubmit}>Log in</button>
+        {/* <label><input type='checkbox' checked='checked' name='remember' /> Remember me</label> */}
       </form>
-      <p>Current input: {loginFormData}</p>
       <p><a href='#'>Forgot/Reset Password</a></p>
       <Link to={'/register'}>Register</Link>
       {/* <p><a href='#'>Register</a></p> */}

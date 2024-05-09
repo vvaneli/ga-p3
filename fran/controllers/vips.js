@@ -9,9 +9,21 @@ export const register = async (req, res) => {
   try {
     const registeredVip = await Vip.create(req.body)
     // console.log(registeredVip)
-
-    return res.json({ message: `Welcome, ${registeredVip.username}. It's good to have you here, let's take a look around...` })
-
+    // Create auth token
+    const token = jwt.sign(
+      { sub: registeredVip._id },	// payload
+      process.env.SECRET,	// secret
+      { expiresIn: '1d' }	// 1 day 
+    )
+    console.log(token) // check in debugger at jwt.io
+    // Send back the token with a success message
+    return res.status(201).json(
+      {
+        message: `Welcome, ${registeredVip.nickname}. It's good to have you here, let's take a look around...`,
+        token: token,
+      }
+    )
+    // return res.json({ message: `Welcome, ${registeredVip.nickname}. It's good to have you here, let's take a look around...` })
   } catch (error) {
     console.log(error)
     return res.json(error.message)
@@ -25,7 +37,7 @@ export const login = async (req, res) => {
   // console.log('At Login Route')
   try {
     // Find the acount
-    const foundVip = await Vip.findOne({ email: req.body.email } || { username: req.body.username })
+    const foundVip = await Vip.findOne({ email: req.body.email } || { nickname: req.body.nickname })
     if (!foundVip) {
       return res.status(401).json({ message: 'Those account details don\'t seem to be correct.' })
     }
@@ -44,8 +56,8 @@ export const login = async (req, res) => {
     // Send back the token with a success message
     return res.status(200).json(
       {
-        message: `Hello ${foundVip.nickname || foundVip.username}, welcome back.`,
-        token: token
+        message: `Hello ${foundVip.nickname}, welcome back.`,
+        token: token,
       }
     )
   } catch (error) {
@@ -106,9 +118,9 @@ export const vipAccountDelete = async (req, res) => {
     const { vipId } = req.params
     const deletedVip = await Vip.findByIdAndDelete(vipId)
     if (!deletedVip) return res.status(404).json({ message: '🫥 Account not found' })
-      return res.sendStatus(204) // 204 cannot return a message
+    return res.sendStatus(204) // 204 cannot return a message
   } catch (error) {
-      console.log(error)
+    console.log(error)
     // sendError(error, res)
   }
 }

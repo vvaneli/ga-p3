@@ -1,6 +1,4 @@
 import { Router } from 'express'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
 
 import { journalIndex, journalShow, journalCreate, journalUpdate, journalDelete } from '../controllers/journalEntries.js'
 import { register, login, vipAccount, vipAccountEdit, vipAccountDelete } from '../controllers/vips.js'
@@ -11,8 +9,8 @@ const router = Router()
 // * JOURNALS
 
 router.route('/journals')
-  .get(journalIndex) //! secure route removed for testing
-  // .get(secureRoute, journalIndex)
+  // .get(journalIndex) // secure route removed temporarily for testing
+  .get(secureRoute, journalIndex)
   .post(secureRoute, journalCreate)
 
 router.route('/journals/:journalId')

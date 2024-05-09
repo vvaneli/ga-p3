@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs'
 const vipSchema = new mongoose.Schema({
   // 1. Core
   nickname: {
-    type: String, required: [true, '🕶️ A nickname is necessary to create an account. You can change this later.']
+    type: String, required: [true, '🕶️ A nickname is necessary to create an account. You can change this later.'],
   },
 
   email: {
@@ -14,17 +14,16 @@ const vipSchema = new mongoose.Schema({
   },
 
   password: {
-    type: String, required: [true, '🤫 A password is necessary to create an account.']
+    type: String, required: [true, '🤫 A password is necessary to create an account.'],
   },
 
   // 2. More
-  username: {type: String},
-  profileImg: {type: String},
+  profileImg: { type: String },
   tags: [{ type: String }],
   progress: [{ type: Number }, { type: Date }, { type: Boolean }],
-  progressCounter: {type: Number},
+  progressCounter: { type: Number },
 },
-  { timestamps: true }
+{ timestamps: true }
 )
 
 // Model
@@ -33,22 +32,22 @@ const vipSchema = new mongoose.Schema({
 vipSchema.set('toJSON', {
   virtuals: true,
   transform(_doc, json) {
-    delete json.password;
+    delete json.password
   },
 });
 
 // password confirmation
 vipSchema
-  .virtual('passwordConfirmation')
+  .virtual('passwordConfirm')
   .set(function (value) {
-    this._passwordConfirmation = value
+    this._passwordConfirm = value
   })
 
 // password validation
 vipSchema
   .pre('validate', function (next) {
-    if (this.isModified('password') && this.password !== this._passwordConfirmation) {
-      this.invalidate('passwordConfirmation', '👯‍♂️ Found a double trouble... the password and the password confirmation need to be the same.')
+    if (this.isModified('password') && this.password !== this._passwordConfirm) {
+      this.invalidate('passwordConfirm', '👯‍♂️ Found a double trouble... the password and the password confirmation need to be the same.')
     }
     next()
   })
