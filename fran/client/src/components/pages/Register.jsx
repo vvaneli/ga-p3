@@ -16,7 +16,7 @@ export default function Register() {
     passwordConfirm: '',
     legal: false
   })
-  const [formError, setFormError] = useState()
+  const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
 

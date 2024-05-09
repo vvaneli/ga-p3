@@ -5,23 +5,31 @@ import { setToken } from '../../../../lib/auth'
 
 export default function Login() {
 
-
   const [loginFormData, setLoginFormData] = useState({
     email: '',
     password: ''
   })
-  const [formError, setFormError] = useState()
+  const [serverMsg, setServerMsg] = useState('')
+  const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
+
+//   const msgLogin = 'fran-login'
+
+// // * Save msgLogin to localStorage
+// function serverMessage(message){
+//   localStorage.setItem(msgLogin, message)
+// }
 
   async function handleLoginSubmit(e) {
     e.preventDefault()
     try {
       // await axios.post('/api/accounts/login', loginFormData)
-      const { data: {token} } = await axios.post('/api/accounts/login', loginFormData)
-      // console.log(data)
+      const { data: {message, token} } = await axios.post('/api/accounts/login', loginFormData)
       // If successful:
+      setServerMsg(message)
       setToken(token) // save token to localStorage
+      // saveMsgLogin(message)
       navigate('/dashboard')
     } catch (error) {
       console.log(error)

@@ -1,24 +1,33 @@
-import { useEffect } from 'react'
-// import { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom'
+// import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { isLoggedIn } from '../../../../lib/auth'
 
 // Sub-Components
 import NavMenu from '../subcomponents/NavMenu.jsx'
 
 export default function Dashboard() {
 
-  // useEffect(() => {
-  //   async function getJournals() {
-  //     try {
-  //       const { data } = await axios.get('/api/journals')
-  //       console.log(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   getJournals()
-  // }, [])
+  const [myJournals, setMyJournals] = useState([])
+  const [errorMsg, setErrorMsg] = useState('')
+  const { vipId } = useParams();
+
+  isLoggedIn()
+
+  useEffect(() => {
+    async function getJournals() {
+      try {
+        const { data } = await axios.get('/api/journals/:vipId')
+        console.log(data)
+        setMyJournals(data)
+      } catch (error) {
+        console.log(error.message)
+        setErrorMsg(error.message)
+      }
+    }
+    getJournals()
+  }, [])
 
   return (
     <>
