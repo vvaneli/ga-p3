@@ -9,25 +9,25 @@ import NavMenu from '../subcomponents/NavMenu.jsx'
 
 export default function Dashboard() {
 
-  const [myJournals, setMyJournals] = useState([])
-  const [errorMsg, setErrorMsg] = useState('')
-  const { vipId } = useParams();
+  // const [myJournals, setMyJournals] = useState([])
+  // const [errorMsg, setErrorMsg] = useState('')
+  // const { vipId } = useParams();
 
-  isLoggedIn()
+  // isLoggedIn()
 
-  useEffect(() => {
-    async function getJournals() {
-      try {
-        const { data } = await axios.get('/api/journals/:vipId')
-        console.log(data)
-        setMyJournals(data)
-      } catch (error) {
-        console.log(error.message)
-        setErrorMsg(error.message)
-      }
-    }
-    getJournals()
-  }, [])
+  // useEffect(() => {
+  //   async function getJournals() {
+  //     try {
+  //       const { data } = await axios.get('/api/journals/:vipId')
+  //       console.log(data)
+  //       setMyJournals(data)
+  //     } catch (error) {
+  //       console.log(error.message)
+  //       setErrorMsg(error.message)
+  //     }
+  //   }
+  //   getJournals()
+  // }, [])
 
   return (
     <>

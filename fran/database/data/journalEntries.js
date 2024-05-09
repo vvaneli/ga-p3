@@ -59,7 +59,7 @@ export default [
       internal: 'I\'m useless for messing that up.',
       permanent: 'I\'ll never be able to cook anything decent.',
       global: 'I\'m useless at this recipe, I\'m going to mess up everything that I cook and every new thing I try.',
-      vipId: '663d0c96c7f2870bedfc03be',
+      vipId: '663d166048d551e46a026b63',
     },
     reflection: {
       feeling2: ['😿'],
@@ -67,8 +67,8 @@ export default [
       external: 'That was a really complicated recipe, and the shop didn\'t have a couple of the ingredients',
       temporary: 'This was the first time I tried this recipe. Next time I\'ll have a better idea of what to do.',
       specific: 'There are lots of other recipes I\'m good at making. I\'ve only had trouble with this one. That doesn\'t make me a bad cook.',
-      vipId: '663d0c96c7f2870bedfc03be',
+      vipId: '663d166048d551e46a026b63',
     },
-    vipId: '663d0c96c7f2870bedfc03be',
+    vipId: '663d166048d551e46a026b63',
   }
 ]

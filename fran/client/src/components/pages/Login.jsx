@@ -14,13 +14,6 @@ export default function Login() {
 
   const navigate = useNavigate()
 
-//   const msgLogin = 'fran-login'
-
-// // * Save msgLogin to localStorage
-// function serverMessage(message){
-//   localStorage.setItem(msgLogin, message)
-// }
-
   async function handleLoginSubmit(e) {
     e.preventDefault()
     try {

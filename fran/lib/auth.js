@@ -1,4 +1,4 @@
-const tokenName = 'fran-account-token'
+const tokenName = 'fran-token'
 
 // * Save token to localStorage
 export function setToken(token){
