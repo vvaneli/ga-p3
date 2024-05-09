@@ -19,7 +19,7 @@ router.route('/journals/:journalId')
   .put(secureRoute, journalUpdate)
   .delete(secureRoute, journalDelete)
 
-  // * ACCOUNTS
+// * ACCOUNTS
 
 router.route('/accounts/register')
   .post(register)
