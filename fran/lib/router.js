@@ -11,7 +11,8 @@ const router = Router()
 // * JOURNALS
 
 router.route('/journals')
-  .get(secureRoute, journalIndex)
+  .get(journalIndex) //! secure route removed for testing
+  // .get(secureRoute, journalIndex)
   .post(secureRoute, journalCreate)
 
 router.route('/journals/:journalId')
