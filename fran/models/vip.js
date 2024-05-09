@@ -4,8 +4,8 @@ import bcrypt from 'bcryptjs'
 // User schema
 const vipSchema = new mongoose.Schema({
   // 1. Core
-  username: {
-    type: String, required: [true, '🪪 A nickname is necessary to create an account. You can change this later.']
+  nickname: {
+    type: String, required: [true, '🕶️ A nickname is necessary to create an account. You can change this later.']
   },
 
   email: {
@@ -18,6 +18,8 @@ const vipSchema = new mongoose.Schema({
   },
 
   // 2. More
+  username: {type: String},
+  profileImg: {type: String},
   tags: [{ type: String }],
   progress: [{ type: Number }, { type: Date }, { type: Boolean }],
   progressCounter: {type: Number},
