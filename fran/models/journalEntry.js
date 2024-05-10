@@ -9,9 +9,9 @@ const journalReactSchema = new mongoose.Schema({
   permanent: { type: String },
   global: { type: String },
   notes: { type: String },
-  vipId: { type: mongoose.ObjectId, ref: "vips", required: true }
+  vipId: { type: mongoose.ObjectId, ref: 'vips', required: true },
 },
-  { timestamps: true }
+{ timestamps: true }
 )
 
 const journalReflectSchema = new mongoose.Schema({
@@ -21,9 +21,9 @@ const journalReflectSchema = new mongoose.Schema({
   temporary: { type: String },
   specific: { type: String },
   notes: { type: String },
-  vipId: { type: mongoose.ObjectId, ref: "vips", required: true }
+  vipId: { type: mongoose.ObjectId, ref: 'vips', required: true },
 },
-  { timestamps: true }
+{ timestamps: true }
 )
 
 const journalEntrySchema = new mongoose.Schema({
@@ -34,9 +34,9 @@ const journalEntrySchema = new mongoose.Schema({
   situation: { type: String, required: [true, 'This is a required field'] },
   reaction: journalReactSchema,
   reflection: journalReflectSchema,
-  vipId: { type: mongoose.ObjectId, ref: "vips", required: true }
+  vipId: { type: mongoose.ObjectId, ref: 'vips', required: true },
 },
-  { timestamps: true }
+{ timestamps: true }
 )
 
 export default mongoose.model('JournalEntry', journalEntrySchema)

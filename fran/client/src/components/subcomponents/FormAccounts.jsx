@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+//! WORK IN PROGRESS – TO BE MADE INTO COMPONENT LATER ON
+
 // Components
 // import registerFormFields from './FormAccountsFields.jsx'
 
@@ -26,3 +28,4 @@ function handleChange(e){
   setFormData({ ...formData, [e.target.name]: e.target.value })
   setError('') // reset the error when typing into a form field
 }
+

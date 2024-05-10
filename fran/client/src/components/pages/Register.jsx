@@ -6,6 +6,7 @@ import { setToken } from '../../../../lib/auth'
 // Components
 // import registerFormFields from '../subcomponents/FormAccountsFields.jsx'
 
+
 export default function Register() {
 
   // State variables
@@ -16,7 +17,7 @@ export default function Register() {
     passwordConfirm: '',
     legal: Boolean()
   })
-  const [serverMsg, setServerMsg] = useState('')
+  const [successMsg, setSuccessMsg] = useState('')
   const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
@@ -26,7 +27,7 @@ export default function Register() {
     try {
       const { data: {message, token} } = await axios.post('/api/accounts/register', registerFormData)
       console.log(message, token)
-      setServerMsg(message)
+      setSuccessMsg(message)
       setToken(token)
       navigate('/dashboard')
     } catch (error) {
@@ -62,6 +63,7 @@ export default function Register() {
       </form>
       <Link to={'/login'}>Log in</Link>
       {/* <p><a href='#'>Log in</a></p> */}
+
     </>
   )
 }

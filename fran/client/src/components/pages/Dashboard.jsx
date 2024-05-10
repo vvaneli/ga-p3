@@ -6,6 +6,7 @@ import { isLoggedIn } from '../../../../lib/auth'
 
 // Sub-Components
 import NavMenu from '../subcomponents/NavMenu.jsx'
+// import SuccessMsg from '../subcomponents/SuccessMsg.jsx'
 
 export default function Dashboard() {
 
@@ -33,6 +34,7 @@ export default function Dashboard() {
     <>
       <NavMenu />
       <h1>Dashboard</h1>
+      {/* <SuccessMsg /> */}
 
     </>
   )

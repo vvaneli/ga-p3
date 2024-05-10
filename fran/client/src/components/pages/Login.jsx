@@ -3,13 +3,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { setToken } from '../../../../lib/auth'
 
+// Components
+import ServerMsg from '../subcomponents/SuccessMsg.jsx'
+
 export default function Login() {
 
   const [loginFormData, setLoginFormData] = useState({
     email: '',
     password: ''
   })
-  const [serverMsg, setServerMsg] = useState('')
+  const [successMsg, setSuccessMsg] = useState('')
   const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
@@ -20,7 +23,7 @@ export default function Login() {
       // await axios.post('/api/accounts/login', loginFormData)
       const { data: {message, token} } = await axios.post('/api/accounts/login', loginFormData)
       // If successful:
-      setServerMsg(message)
+      setSuccessMsg(message)
       setToken(token) // save token to localStorage
       // saveMsgLogin(message)
       navigate('/dashboard')
@@ -51,6 +54,7 @@ export default function Login() {
       <p><a href='#'>Forgot/Reset Password</a></p>
       <Link to={'/register'}>Register</Link>
       {/* <p><a href='#'>Register</a></p> */}
+      {/* <ServerMsg /> */}
     </>
   )
 }
