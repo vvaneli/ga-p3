@@ -12,7 +12,7 @@ export default function JournalsList() {
   const [errorMsg, setErrorMsg] = useState('')
   // const { vipId } = useParams();
 
-  isLoggedIn()
+  // isLoggedIn()
 
   useEffect(() => {
     async function getJournals() {
