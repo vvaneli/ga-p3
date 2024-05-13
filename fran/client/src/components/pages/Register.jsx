@@ -17,7 +17,7 @@ export default function Register() {
     passwordConfirm: '',
     legal: Boolean()
   })
-  const [successMsg, setSuccessMsg] = useState('')
+  // const [successMsg, setSuccessMsg] = useState('')
   const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
@@ -27,9 +27,9 @@ export default function Register() {
     try {
       const { data: {message, token} } = await axios.post('/api/accounts/register', registerFormData)
       console.log(message, token)
-      setSuccessMsg(message)
+      // setSuccessMsg(message)
       setToken(token)
-      navigate('/dashboard')
+      navigate('/dashboard', { state: { successMsg: message } })
     } catch (error) {
       console.log(error)
       // console.log(error.response.data.message)

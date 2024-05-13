@@ -1,9 +1,21 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { removeToken, isLoggedIn } from './../../../../lib/auth'
 
 // Sub-Components
-import LogoutBtn from './LogoutBtn.jsx'
+// import LogoutBtn from './LogoutBtn.jsx'
 
 export default function NavMenu() {
+
+  const navigate = useNavigate()
+  
+  // if (!isLoggedIn) {
+  //   navigate('/')
+  // }
+
+  function handleLogout() {
+    removeToken()
+    navigate('/')
+  }
 
   return (
     <>
@@ -17,7 +29,8 @@ export default function NavMenu() {
       <section>
         <Link to={'/account'}>Account</Link>
         <Link to={'/help'}>Help</Link>
-        <LogoutBtn />
+        <button type='button' onClick={handleLogout}>Log out</button>
+        {/* <LogoutBtn onClick={LogoutBtn}/> */}
       </section>
     </>
   )

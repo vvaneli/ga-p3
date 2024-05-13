@@ -12,7 +12,7 @@ export default function Login() {
     email: '',
     password: ''
   })
-  const [successMsg, setSuccessMsg] = useState('')
+
   const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
@@ -23,10 +23,11 @@ export default function Login() {
       // await axios.post('/api/accounts/login', loginFormData)
       const { data: {message, token} } = await axios.post('/api/accounts/login', loginFormData)
       // If successful:
-      setSuccessMsg(message)
       setToken(token) // save token to localStorage
       // saveMsgLogin(message)
-      navigate('/dashboard')
+      // https://reactrouter.com/en/main/hooks/use-navigate
+      navigate('/dashboard', { state: { successMsg: message } })
+      // navigate('/dashboard')
     } catch (error) {
       console.log(error)
       // console.log(error.response.data.message)

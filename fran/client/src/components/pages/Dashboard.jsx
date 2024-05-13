@@ -1,6 +1,6 @@
 // import { useEffect } from 'react'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import { isLoggedIn } from '../../../../lib/auth'
 
@@ -10,6 +10,9 @@ import NavMenu from '../subcomponents/NavMenu.jsx'
 
 export default function Dashboard() {
 
+  // const { state } = useLocation()
+  const {state} = useLocation()
+console.log(state.successMsg)
   // const [myJournals, setMyJournals] = useState([])
   // const [errorMsg, setErrorMsg] = useState('')
   // const { vipId } = useParams();
@@ -34,8 +37,7 @@ export default function Dashboard() {
     <>
       <NavMenu />
       <h1>Dashboard</h1>
-      {/* <SuccessMsg /> */}
-
+      <p>{state.successMsg}</p>
     </>
   )
 }

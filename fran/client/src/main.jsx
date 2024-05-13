@@ -19,12 +19,14 @@ import ArticlesList from './components/pages/ArticlesList.jsx'
 import ArticlePage from './components/pages/ArticlePage.jsx'
 import Account from './components/pages/Account.jsx'
 import Help from './components/pages/Help.jsx'
+import NotFound from './components/pages/NotFound.jsx'
 
 // Routes
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <NotFound />,
     children: [
       {
         path: '',
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
         element: <JournalsList />
       },
       {
-        path: 'journal',
+        path: 'journals/:journalId',
         element: <JournalPage />
       },
       {
@@ -59,11 +61,11 @@ const router = createBrowserRouter([
         element: <ArticlesList />
       },
       {
-        path: 'article',
+        path: 'article/:articleId',
         element: <ArticlePage />
       },
       {
-        path: 'account',
+        path: 'account/:accountId',
         element: <Account />
       },
       {

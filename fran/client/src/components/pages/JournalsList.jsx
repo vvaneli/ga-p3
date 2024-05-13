@@ -12,8 +12,6 @@ export default function JournalsList() {
   const [errorMsg, setErrorMsg] = useState('')
   // const { vipId } = useParams();
 
-  // isLoggedIn()
-
   useEffect(() => {
     async function getJournals() {
       try {
@@ -40,11 +38,12 @@ export default function JournalsList() {
         myJournals.map(myJournal => {
           return (
             <article key={myJournal._id}>
+              <h2>{myJournal._id}</h2>
               <h2>{myJournal.title}</h2>
               <p>{myJournal.situation}</p>
               <p>{myJournal.createdAt}</p>
               {myJournal.images.length > 0 ?
-                <img src={`"${myJournal.image[0]}"`} alt="" />
+                <img src={`'${myJournal.image[0]}'`} alt='' />
                 :
                 <div>No image</div>
               }
