@@ -25,7 +25,7 @@ export default function Register() {
   async function handleRegister(e) {
     e.preventDefault()
     try {
-      const { data: {message, token} } = await axios.post('/api/accounts/register', registerFormData)
+      const { data: {message, token} } = await axios.post('/api/account/register', registerFormData)
       console.log(message, token)
       // setSuccessMsg(message)
       setToken(token)

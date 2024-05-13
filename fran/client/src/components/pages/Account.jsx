@@ -18,11 +18,7 @@ export default function Account() {
   useEffect(() => {
     async function getAccount() {
       try {
-        const { data } = await axios.get(`/api/accounts/${accountId}`, {
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
-        })
+        const { data } = await axios.get(`/api/account`)
         console.log(data)
         setMyAccount(data)
       } catch (error) {
@@ -31,7 +27,7 @@ export default function Account() {
       }
     }
     getAccount()
-  }, [accountId])
+  }, [])
 
   // function handleChange() {
 
@@ -39,11 +35,12 @@ export default function Account() {
 
   async function deleteAccount() {
     try {
-      await axios.delete(`/api/accounts/${accountId}`, {
-        headers: {
-          Authorization: `Bearer ${getToken()}`
-        }
-      })
+      await axios.delete(`/api/account`)
+      // await axios.delete(`/api/account/${accountId}`, {
+      //   headers: {
+      //     Authorization: `Bearer ${getToken()}`
+      //   }
+      // })
       navigate('/')
       // console.log(data)
       // setMyAccount(data)
@@ -59,10 +56,11 @@ export default function Account() {
       <h1>Account</h1>
       {myAccount ?
         <>
-          <p>{myAccount.nickname}</p>
-          <p>{myAccount.email}</p>
+          <p>Name: {myAccount.nickname}</p>
+          <p>Email: {myAccount.email}</p>
           <p>Profile image: {myAccount.profileImg}</p>
           <p>Tags: {myAccount.tags}</p>
+          <p>Id: {myAccount._id}</p>
           <button type='button' onClick={deleteAccount}>Delete Account</button>
         </>
         :

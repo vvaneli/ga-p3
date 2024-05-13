@@ -20,14 +20,15 @@ router.route('/journals/:journalId')
 
 // * ACCOUNTS
 
-router.route('/accounts/register')
+router.route('/account/register')
   .post(register)
 
-router.route('/accounts/login')
+router.route('/account/login')
   .post(login)
 
-router.route('/accounts/:vipId')
+router.route('/account/:vipId')
   .get(secureRoute, vipAccount)
+// router.route('/account')
   .put(secureRoute, vipAccountEdit)
   .delete(secureRoute, vipAccountDelete)
 

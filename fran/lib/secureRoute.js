@@ -16,7 +16,7 @@ export default async (req, res, next) => {
     // console.log('JWT payload: ', payload)
     const foundVip = await Vip.findById(payload.sub)
     if (!foundVip) throw new Error('🫥 Account not found')
-    // add vip id to the request object
+    // add user id to the request object
     req.currentUser = foundVip
     next()
   } catch (error) {

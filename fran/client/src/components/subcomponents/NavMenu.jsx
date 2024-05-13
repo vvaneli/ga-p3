@@ -30,7 +30,6 @@ export default function NavMenu() {
         <Link to={'/account'}>Account</Link>
         <Link to={'/help'}>Help</Link>
         <button type='button' onClick={handleLogout}>Log out</button>
-        {/* <LogoutBtn onClick={LogoutBtn}/> */}
       </section>
     </>
   )

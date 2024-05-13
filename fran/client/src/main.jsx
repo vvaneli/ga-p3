@@ -61,11 +61,11 @@ const router = createBrowserRouter([
         element: <ArticlesList />
       },
       {
-        path: 'article/:articleId',
+        path: 'articles/:articleId',
         element: <ArticlePage />
       },
       {
-        path: 'account/:accountId',
+        path: 'account',
         element: <Account />
       },
       {

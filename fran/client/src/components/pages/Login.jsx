@@ -20,8 +20,8 @@ export default function Login() {
   async function handleLoginSubmit(e) {
     e.preventDefault()
     try {
-      // await axios.post('/api/accounts/login', loginFormData)
-      const { data: {message, token} } = await axios.post('/api/accounts/login', loginFormData)
+      // await axios.post('/api/account/login', loginFormData)
+      const { data: {message, token} } = await axios.post('/api/account/login', loginFormData)
       // If successful:
       setToken(token) // save token to localStorage
       // saveMsgLogin(message)

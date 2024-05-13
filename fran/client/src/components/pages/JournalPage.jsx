@@ -17,11 +17,7 @@ export default function JournalPage() {
     async function getJournalEntry() {
       try {
         // const { data } = await axios.get(`/api/journals/${journalId}`)
-        const { data } = await axios.get(`/api/journals/${journalId}`, {
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
-        })
+        const { data } = await axios.get(`/api/journals/${journalId}`)
         console.log(data)
         setMyJournal(data)
       } catch (error) {
