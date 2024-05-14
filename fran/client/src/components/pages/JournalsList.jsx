@@ -44,9 +44,9 @@ export default function JournalsList() {
               <h2>{myJournal.title}</h2>
               <Link to={`/journals/${myJournal._id}`} className=''>View details</Link>
               <p>{myJournal.situation}</p>
-              <p>{myJournal.createdAt}</p>
+              <p>{Date(myJournal.createdAt)}</p>
               {myJournal.images.length > 0 ?
-                <img src={`"${myJournal.image[0]}"`} alt="" />
+                <img src={`'${myJournal.image[0]}'`} alt='image' />
                 :
                 <div>No image</div>
               }

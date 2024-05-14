@@ -6,6 +6,7 @@ import { setToken } from '../../lib/auth'
 // Components
 // import registerFormFields from '../subcomponents/FormAccountsFields.jsx'
 import logo from '../../assets/logo/fran_logo-solid_white_200w200h.svg'
+// import profileImg from '../../assets/icons/face_24dp_FILL0_wght400_GRAD0_opsz24.svg'
 
 export default function Register() {
 
@@ -13,6 +14,7 @@ export default function Register() {
   const [registerFormData, setRegisterFormData] = useState({
     nickname: '',
     email: '',
+    // profileImg: '',
     password: '',
     passwordConfirm: '',
     legal: Boolean(),
@@ -66,7 +68,7 @@ export default function Register() {
           <input type='password' placeholder='enter a password' name='password' id='password' value={registerFormData.password} onChange={handleChange} required />
           <label htmlFor='passwordConfirm'>Confirm Password</label>
           <input type='password' placeholder='confirm password' name='passwordConfirm' id='passwordConfirm' value={registerFormData.passwordConfirm} onChange={handleChange} required />
-
+          {/* <input className='' type='image' src={profileImg} name='profileImg' value={registerFormData.profileImg} alt='' /> */}
           <label><input type='checkbox' name='legal' value={registerFormData.legal} onChange={handleChange} required />I agree</label>
           {formError && <p><em>{formError}</em></p>}
           <button type='submit'>Register</button>

@@ -7,9 +7,11 @@ export default async (req, res, next) => {
   try {
     // console.log('At Secure Route')
     // console.log('Headers: ', req.headers)
+
     if (!req.headers.authorization) {
       return res.status(401).json({ message: '🪵 Please log in' })
     }
+    
     const token = req.headers.authorization.replace('Bearer ', '')
     // console.log('Token: ', token)
     const payload = jwt.verify(token, process.env.SECRET)

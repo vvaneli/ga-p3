@@ -94,16 +94,18 @@ export const vipAccountEdit = async (req, res) => {
   console.log('At Account Edit Route')
   try {
     // const { vipId } = req.params
-    const { vipId } = req.currentUser._id
-    const vipDocument = await Vip.findById(vipId)
+    // const { vipId } = req.currentUser._id
+    const vipDocument = await Vip.findById(req.currentUser._id)
+    // const vipDocument = await Vip.findById(vipId)
     // If item not found, send 404
-    if (!vipDocument) return res.status(404).json({ message: '🫥 Account not found' })
+    // if (!vipDocument) return res.status(404).json({ message: '🫥 Account not found' })
     // Update the target object (from the db) with the source (req.body)
     Object.assign(vipDocument, req.body)
     // Save the update requested
     await vipDocument.save()
     // Return the latest database entry
-    const updatedVip = await Vip.findById(vipId)
+    // const updatedVip = await Vip.findById(vipId)
+    const updatedVip = await Vip.findById(req.currentUser._id)
     return res.json(updatedVip)
   } catch (error) {
     console.log(error)
