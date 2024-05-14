@@ -1,4 +1,5 @@
 // import { Error } from 'mongoose'
+import sendError from '../lib/errors.js'
 
 // Import Model
 import JournalEntry from '../models/journalEntry.js'
@@ -7,13 +8,15 @@ import JournalEntry from '../models/journalEntry.js'
 // * Index Route (HOME)
 // Path: GET /api/journals
 export const journalIndex = async (req, res) => {
+  // console.log('backend1: ' + req.currentUser._id)
   try {
-    const foundJournals = await JournalEntry.find()
+    const foundJournals = await JournalEntry.find({ vipId: req.currentUser._id }).exec()
+    // if (foundJournals.length === 0) return res.json({ message: 'This person doesn\'t have any journal entries.' })
     if (!foundJournals) return res.status(404).json({ message: 'Not Found' })
     return res.json(foundJournals)
   } catch (error) {
-    console.log(error)
-    // sendError(error, res)
+    // console.log('backend2: ' + error)
+    sendError(error, res)
   }
 }
 
@@ -25,7 +28,7 @@ export const journalCreate = async (req, res) => {
     return res.status(201).json(newJournalEntry)
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
   }
 }
 
@@ -41,7 +44,7 @@ export const journalShow = async (req, res) => {
     return res.status(200).json(foundJournalEntry)
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
   }
 }
 
@@ -64,7 +67,7 @@ export const journalUpdate = async (req, res) => {
     return res.json(updatedJournalEntry)
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
   }
 }
 
@@ -79,6 +82,6 @@ export const journalDelete = async (req, res) => {
     return res.sendStatus(204) // status 204 cannot return a message
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
   }
 }

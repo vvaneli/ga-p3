@@ -23,8 +23,7 @@ export default function JournalsList() {
             Authorization: `Bearer ${getToken()}`
           }
         })
-        console.log(data)
-        // console.log(data[0].vipId) // gets the owner id
+        if (data.length === 0) {setErrorMsg('Chat to Fran to add a journal entry.')}
         setMyJournals(data)
       } catch (error) {
         console.log(error.message)

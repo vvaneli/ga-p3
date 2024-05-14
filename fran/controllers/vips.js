@@ -2,6 +2,8 @@ import Vip from '../models/vip.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
+import sendError from '../lib/errors.js'
+
 // * Register Route (make an account)
 // Path: POST /api/account/register
 export const register = async (req, res) => {
@@ -26,8 +28,8 @@ export const register = async (req, res) => {
     // return res.json({ message: `Welcome, ${registeredVip.nickname}. It's good to have you here, let's take a look around...` })
   } catch (error) {
     console.log(error)
+    sendError(error, res)
     return res.json(error.message)
-    // sendError(error, res)
   }
 }
 
@@ -62,8 +64,8 @@ export const login = async (req, res) => {
     )
   } catch (error) {
     console.log(error)
+    sendError(error, res)
     return res.json(error.message)
-    // sendError(error, res)
   }
 }
 
@@ -81,7 +83,8 @@ export const vipAccount = async (req, res) => {
     return res.status(200).json(req.currentUser)
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
+    return res.json(error.message)
   }
 }
 
@@ -104,7 +107,8 @@ export const vipAccountEdit = async (req, res) => {
     return res.json(updatedVip)
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
+    return res.json(error.message)
   }
 }
 
@@ -122,6 +126,7 @@ export const vipAccountDelete = async (req, res) => {
     return res.sendStatus(204) // 204 cannot return a message
   } catch (error) {
     console.log(error)
-    // sendError(error, res)
+    sendError(error, res)
+    return res.json(error.message)
   }
 }
