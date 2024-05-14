@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // Sub-Components
 import NavMenu from '../subcomponents/NavMenu.jsx'
-import { getToken, isLoggedIn } from '../../../../lib/auth'
+import { getToken, isLoggedIn } from '../../lib/auth.js'
 
 export default function JournalsList() {
 
@@ -12,15 +12,19 @@ export default function JournalsList() {
   const [errorMsg, setErrorMsg] = useState('')
   // const { vipId } = useParams();
 
+  // isLoggedIn()
+
   useEffect(() => {
     async function getJournals() {
       try {
+        // const { data } = await axios.get(`/api/journals/${myJournal._id}`)
         const { data } = await axios.get('/api/journals/', {
           headers: {
             Authorization: `Bearer ${getToken()}`
           }
         })
-        // console.log(data)
+        console.log(data)
+        // console.log(data[0].vipId) // gets the owner id
         setMyJournals(data)
       } catch (error) {
         console.log(error.message)
@@ -38,12 +42,12 @@ export default function JournalsList() {
         myJournals.map(myJournal => {
           return (
             <article key={myJournal._id}>
-              <h2>{myJournal._id}</h2>
               <h2>{myJournal.title}</h2>
+              <Link to={`/journals/${myJournal._id}`} className=''>View details</Link>
               <p>{myJournal.situation}</p>
               <p>{myJournal.createdAt}</p>
               {myJournal.images.length > 0 ?
-                <img src={`'${myJournal.image[0]}'`} alt='' />
+                <img src={`"${myJournal.image[0]}"`} alt="" />
                 :
                 <div>No image</div>
               }

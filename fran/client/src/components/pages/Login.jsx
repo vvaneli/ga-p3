@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { setToken } from '../../../../lib/auth'
-
-// Components
-import ServerMsg from '../subcomponents/SuccessMsg.jsx'
+import { setToken } from '../../lib/auth'
 
 export default function Login() {
 
@@ -12,7 +9,7 @@ export default function Login() {
     email: '',
     password: ''
   })
-
+  // const [successMsg, setSuccessMsg] = useState('')
   const [formError, setFormError] = useState('')
 
   const navigate = useNavigate()
@@ -23,11 +20,10 @@ export default function Login() {
       // await axios.post('/api/account/login', loginFormData)
       const { data: {message, token} } = await axios.post('/api/account/login', loginFormData)
       // If successful:
+      // setSuccessMsg(message)
       setToken(token) // save token to localStorage
       // saveMsgLogin(message)
-      // https://reactrouter.com/en/main/hooks/use-navigate
-      navigate('/dashboard', { state: { successMsg: message } })
-      // navigate('/dashboard')
+      navigate('/dashboard', { state: { successMsg: message} })
     } catch (error) {
       console.log(error)
       // console.log(error.response.data.message)
@@ -43,6 +39,7 @@ export default function Login() {
 
   return (
     <>
+    <main className='authForm'>
       <h1>Log in</h1>
       <form onSubmit={handleLoginSubmit}>
         <label htmlFor='email'>E-mail</label>
@@ -55,7 +52,7 @@ export default function Login() {
       <p><a href='#'>Forgot/Reset Password</a></p>
       <Link to={'/register'}>Register</Link>
       {/* <p><a href='#'>Register</a></p> */}
-      {/* <ServerMsg /> */}
+      </main>
     </>
   )
 }

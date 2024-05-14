@@ -26,9 +26,9 @@ router.route('/account/register')
 router.route('/account/login')
   .post(login)
 
-router.route('/account/:vipId')
+// router.route('/account/:vipId')
+router.route('/account')
   .get(secureRoute, vipAccount)
-// router.route('/account')
   .put(secureRoute, vipAccountEdit)
   .delete(secureRoute, vipAccountDelete)
 

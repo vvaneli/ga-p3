@@ -1,0 +1,35 @@
+// @import bkImgPastel from '../assets/img/back_abstract_blues.jpg';
+// import logo from '../../assets/logo/fran_wlogo_rgbW_350w300h.svg'
+
+$colourConsole: rgb(3, 34, 48);
+$colourSteel: rgb(0, 67, 102);
+$colourCream: rgb(247, 237, 237);
+$colourCream7: rgba(247,237,237, 0.7);
+// $colourSterling: rgb();
+
+$colourBlue: rgb(19, 214, 235);
+$colourGreen: rgb(139, 243, 151);
+$colourPink: rgb(249, 151, 191);
+$colourViolet: rgb(106, 34, 254);
+
+$colourShadow: rgba(0, 0, 0, 0.8);
+$colourTransparent: rgba(0,0,0,0);
+
+$grad2hBV: linear-gradient(to right, $colourBlue, $colourViolet);
+$grad2hGV: linear-gradient(to right, $colourGreen , $colourViolet);
+$grad2hPV: linear-gradient(to right, $colourPink, $colourViolet);
+$grad2vGB: linear-gradient(to right, $colourGreen, $colourBlue);
+$grad4h: linear-gradient(to right, $colourBlue, $colourGreen , $colourPink, $colourViolet);
+$grad4v: linear-gradient($colourBlue, $colourGreen , $colourPink, $colourViolet);
+
+$bkImgBlue: url('../assets/img/back_abstract_blues.jpg');
+$bkImgPastel: url('../assets/img/back_abstract_pastel.jpg');
+$bkImgMono: url('../assets/img/back_abstract_mono.jpg');
+
+#root {
+  background-image: $grad4v;
+  // background-image: $bkImgMono;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-image: $grad4v;
+}

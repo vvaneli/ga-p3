@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 // * Register Route (make an account)
 // Path: POST /api/account/register
 export const register = async (req, res) => {
-  // console.log('At Register Route')
+  console.log('At Register Route')
   try {
     const registeredVip = await Vip.create(req.body)
     // console.log(registeredVip)
@@ -72,20 +72,17 @@ export const login = async (req, res) => {
 export const vipAccount = async (req, res) => {
   console.log('At Account Show Route')
   try {
-    const { vipId } = req.params
-    const foundVip = await Vip.findById(vipId)
-
+    // const { vipId } = req.params
+    // const foundVip = await Vip.findById(vipId)
     // If item not found, send 404
-    if (!foundVip) return res.status(404).json({ message: '🫥 Account not found' })
-
+    // if (!foundVip) return res.status(404).json({ message: '🫥 Account not found' })
     // Otherwise (if item found), send item as 200
-    return res.status(200).json(foundVip)
-
+    // return res.status(200).json(foundVip)
+    return res.status(200).json(req.currentUser)
   } catch (error) {
     console.log(error)
     // sendError(error, res)
   }
-
 }
 
 // * Update Route (edit account details)
@@ -93,7 +90,8 @@ export const vipAccount = async (req, res) => {
 export const vipAccountEdit = async (req, res) => {
   console.log('At Account Edit Route')
   try {
-    const { vipId } = req.params
+    // const { vipId } = req.params
+    const { vipId } = req.currentUser._id
     const vipDocument = await Vip.findById(vipId)
     // If item not found, send 404
     if (!vipDocument) return res.status(404).json({ message: '🫥 Account not found' })
@@ -115,9 +113,12 @@ export const vipAccountEdit = async (req, res) => {
 export const vipAccountDelete = async (req, res) => {
   console.log('At Account Delete Route')
   try {
-    const { vipId } = req.params
-    const deletedVip = await Vip.findByIdAndDelete(vipId)
-    if (!deletedVip) return res.status(404).json({ message: '🫥 Account not found' })
+    // const { vipId } = req.params
+    // const { vipId } = req.currentUser._id
+    // const deletedVip = await Vip.findByIdAndDelete(vipId)
+    const deletedVip = await Vip.findByIdAndDelete(req.currentUser._id)
+    // if (!deletedVip) return res.status(404).json({ message: '🫥 Account not found' })
+    // if (!req.currentUser) return res.status(404).json({ message: '🫥 Account not found' })
     return res.sendStatus(204) // 204 cannot return a message
   } catch (error) {
     console.log(error)

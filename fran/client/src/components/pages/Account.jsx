@@ -1,24 +1,29 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { getToken, isLoggedIn } from '../../../../lib/auth'
 
 // Sub-Components
+import Header from '../subcomponents/Header.jsx'
 import NavMenu from '../subcomponents/NavMenu.jsx'
+import { getToken, removeToken } from '../../lib/auth.js'
 
 export default function Account() {
 
   const [myAccount, setMyAccount] = useState([])
   const [errorMsg, setErrorMsg] = useState('')
 
-  let { accountId } = useParams();
+  // let { accountId } = useParams();
 
   const navigate = useNavigate()
 
   useEffect(() => {
     async function getAccount() {
       try {
-        const { data } = await axios.get(`/api/account`)
+        const { data } = await axios.get(`/api/account`, {
+          headers: {
+            Authorization: `Bearer ${getToken()}`
+          }
+        })
         console.log(data)
         setMyAccount(data)
       } catch (error) {
@@ -35,15 +40,13 @@ export default function Account() {
 
   async function deleteAccount() {
     try {
-      await axios.delete(`/api/account`)
-      // await axios.delete(`/api/account/${accountId}`, {
-      //   headers: {
-      //     Authorization: `Bearer ${getToken()}`
-      //   }
-      // })
+      await axios.delete(`/api/account`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      })
+      removeToken()
       navigate('/')
-      // console.log(data)
-      // setMyAccount(data)
     } catch (error) {
       console.log(error.message)
       setErrorMsg(error.message)
@@ -52,6 +55,7 @@ export default function Account() {
 
   return (
     <>
+      <Header />
       <NavMenu />
       <h1>Account</h1>
       {myAccount ?

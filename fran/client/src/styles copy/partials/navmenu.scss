@@ -1,0 +1,92 @@
+@import './colours.scss';
+@import './sizes.scss';
+
+// APP
+@mixin app {
+  font-family: "Merriweather Sans", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+.menu-icon {
+  width: 2.2em;
+  position: fixed;
+  margin: 1em 0.5em;
+  cursor: pointer;
+}
+
+.navmenu {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 1em 0 20px 0;
+  background: $colourSteel;
+  box-shadow: calc($viewWidth / 2) 0 0 0 $colourShadow; // x offset, y offset, blur, spread
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: calc((100vw - $viewWidth) / 2);
+  position: fixed;
+}
+
+.navOpen {
+  min-width: calc($viewWidth / 2);
+  transition: 0.5s;
+}
+
+.navClose {
+  width: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.navmenu-section {}
+
+.navmenu hr {
+  width: 10%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  border: 1px solid $colourCream;
+  opacity: 20%;
+}
+
+.navmenu-item {
+  padding-bottom: 2em;
+}
+
+.navmenu-logo {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.logoutBtn {
+  background-color: $colourSteel;
+  border: 0;
+  cursor: pointer;
+  @include app;
+  opacity: 60%;
+  font-weight: 200;
+}
+
+/* open close */
+// .navmenu {
+//   transition: 0.5s;
+//   z-index: 1;
+// }
+
+
+
+.closeBtn {
+  // position: absolute;
+  // top: 0;
+  // right: 50vw;
+  // font-size: 36px;
+  // margin-left: 50px;
+  width: 2.2em;
+  opacity: 35%;
+  margin-left: auto;
+  padding-right: 1em;
+  padding-bottom: 2em;
+  ;
+  cursor: pointer;
+}
