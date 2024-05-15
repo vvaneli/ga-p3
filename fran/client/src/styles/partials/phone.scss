@@ -1,0 +1,29 @@
+// @import './colours.scss';
+@import './sizes.scss';
+
+.phone {
+  width: $phoneWidth;
+  height: $phoneHeight;
+  background-image: url(https://res.cloudinary.com/vli/image/upload/v1715708014/device_frames/iphone8_frame_436w885h_crj0nh.png);
+  background-position: center;
+  background-size: cover;
+  display: block;
+  position: absolute;
+  // margin: 0 auto;
+  margin-top: calc((100vh - $phoneHeight) / 4);
+  margin-left: calc((100vw - $phoneWidth) / 2);
+}
+
+#app {
+  // background-color: red;
+  height: $viewHeight;
+  width: $viewWidth;
+  margin: 0 auto;
+  margin-top: calc(($phoneHeight - $viewHeight) / 2);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.secure-route {
+  margin-top: calc((100vh - $phoneHeight) / 2);
+}

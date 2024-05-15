@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Swan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 120">
+  <defs>
+    <linearGradient id="linear-gradient" x1="213.1" y1="9.55" x2="213.1" y2="110.45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#13d6eb"/>
+      <stop offset=".28" stop-color="#8bf397"/>
+      <stop offset=".31" stop-color="#9ae69c"/>
+      <stop offset=".37" stop-color="#bcc9a8"/>
+      <stop offset=".44" stop-color="#d7b3b2"/>
+      <stop offset=".51" stop-color="#e9a3b9"/>
+      <stop offset=".58" stop-color="#f59abd"/>
+      <stop offset=".66" stop-color="#f997bf"/>
+      <stop offset="1" stop-color="#6a22fe"/>
+    </linearGradient>
+  </defs>
+  <polygon points="16.94 110.45 24.15 110.45 24.15 80.86 67.86 80.86 67.86 57.83 24.15 57.83 24.15 35.44 78.67 35.44 78.67 28.23 16.94 28.23 16.94 110.45" fill="#f7eded" stroke-width="0"/>
+  <path d="M157.63,72.48c3.79-4.91,5.72-10.56,5.72-16.8,0-5.34-1.4-10.28-4.16-14.68h0c-2.76-4.4-6.6-7.77-11.4-10.01-2.09-.96-4.41-1.67-6.92-2.11-2.47-.43-5.44-.65-8.85-.65h-31.66v82.22h7.21v-27.2h27.12s2.84-.09,2.84-.09l19.45,27.29h8.7l-20.64-28.8c5.01-1.76,9.24-4.84,12.59-9.18ZM153.39,65.85c-1.83,3.1-4.34,5.6-7.44,7.44-3.09,1.82-6.51,2.75-10.16,2.75h-28.21v-40.59h24.45c5.16,0,9.18.58,11.93,1.7,3.8,1.62,6.81,4.11,8.95,7.4,2.14,3.3,3.23,7.05,3.23,11.13,0,3.66-.93,7.08-2.75,10.17Z" fill="#f7eded" stroke-width="0"/>
+  <path d="M232.76,54.41h-37.04l-19.8-44.86h-7.8l42.94,100.9h6.44l40.59-100.9h-7.68l-17.64,44.86ZM229.85,61.51l-15.53,38.02-15.63-38.02h31.16Z" fill="url(#linear-gradient)" stroke-width="0"/>
+  <polygon points="325.85 28.12 325.85 79.9 272.64 28.12 266.09 28.12 266.09 110.34 333.06 110.34 333.06 28.12 325.85 28.12" fill="#f7eded" stroke-width="0"/>
+</svg>

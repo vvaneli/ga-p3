@@ -12,7 +12,7 @@ $colourGreen: rgb(139, 243, 151);
 $colourPink: rgb(249, 151, 191);
 $colourViolet: rgb(106, 34, 254);
 
-$colourShadow: rgba(0, 0, 0, 0.8);
+$colourShadow: rgba(0, 0, 0, 0.3);
 $colourTransparent: rgba(0,0,0,0);
 
 $grad2hBV: linear-gradient(to right, $colourBlue, $colourViolet);
@@ -22,12 +22,15 @@ $grad2vGB: linear-gradient(to right, $colourGreen, $colourBlue);
 $grad4h: linear-gradient(to right, $colourBlue, $colourGreen , $colourPink, $colourViolet);
 $grad4v: linear-gradient($colourBlue, $colourGreen , $colourPink, $colourViolet);
 
+$gradBlack8Alpha: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+// background-image: linear-gradient(direction, color-stop1, color-stop2, ...); 
+
 $bkImgBlue: url('../assets/img/back_abstract_blues.jpg');
 $bkImgPastel: url('../assets/img/back_abstract_pastel.jpg');
 $bkImgMono: url('../assets/img/back_abstract_mono.jpg');
 
 #root {
-  background-image: $grad4v;
+  // background-image: $grad4v;
   // background-image: $bkImgMono;
   // background-repeat: no-repeat;
   // background-size: cover;

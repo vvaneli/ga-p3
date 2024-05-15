@@ -1,3 +1,69 @@
+// https://www.w3schools.com/sass/sass_mixin_include.php
+
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap');
+
+// ? Mono
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+// ? Human
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import './partials/fonts.scss';
+@import './partials/colours.scss';
+@import './partials/sizes.scss';
+@import './partials/navmenu.scss';
+@import './partials/auth.scss';
+@import './partials/phone.scss';
+@import './partials/themeDark.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* FLEX C */
+#root {
+  display: flex;
+}
+
+/* FLEX I */
+
+// .self-end {
+//   align-self: flex-end;
+// }
+
+/* COMMON LAYOUT  ITEMS */
+
+#root {
+  min-height: 100vh;
+}
+
+body {
+  @include app-font;
+  // background: red;
+  // max-width: $viewWidth;
+  // margin: 0 auto;
+}
+
 .hide {
   display: none;
 }
+
+a {
+  text-decoration: none;
+
+}
+
+a:link,
+a:hover,
+a:visited {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+

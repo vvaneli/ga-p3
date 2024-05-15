@@ -59,7 +59,7 @@ export default function Account() {
 
   // save account updates to DB
 
-  async function handleUpdateProfile(e) {
+  async function handleSubmitUpdateProfile(e) {
     e.preventDefault()
     try {
       await axios.put('/api/account', myAccount, {
@@ -75,7 +75,7 @@ export default function Account() {
     }
   }
 
-  async function handleUpdatePassword(e) {
+  async function handleSubmitUpdatePassword(e) {
     e.preventDefault()
     try {
       await axios.put('/api/account', myAccount, {
@@ -84,7 +84,6 @@ export default function Account() {
         }
       })
       handleExitEditPassword()
-      setSuccessTick('')
     } catch (error) {
       console.log(error)
       // console.log(error.response.data.message)
@@ -115,36 +114,33 @@ export default function Account() {
     setFormError('')
   }
 
-  function handleEditProfile(e) {
-    e.preventDefault()
+  function handleEditProfile() {
     setEditProfileBtn('hide')
     setShowProfileInfo('hide')
     setEditProfileInfo('')
     setSaveProfileBtn('')
   }
 
-  function handleExitEditProfile(e) {
-    e.preventDefault()
+  function handleExitEditProfile() {
     setEditProfileBtn('')
     setShowProfileInfo('')
     setEditProfileInfo('hide')
     setSaveProfileBtn('hide')
   }
 
-  function handleEditPassword(e) {
-    e.preventDefault()
+  function handleEditPassword() {
     setEditPasswordBtn('hide')
     setShowPasswordInfo('hide')
     setEditPasswordInfo('')
     setSavePasswordBtn('')
   }
 
-  function handleExitEditPassword(e) {
-    e.preventDefault()
+  function handleExitEditPassword() {
     setEditPasswordBtn('')
     setShowPasswordInfo('')
     setEditPasswordInfo('hide')
     setSavePasswordBtn('hide')
+    setSuccessTick('')
   }
 
   return (
@@ -168,7 +164,7 @@ export default function Account() {
               <button type='button' className={editProfileBtn} onClick={handleEditProfile}>Edit Profile</button>
             </div>
             <div className={editProfileInfo}>
-              <form onSubmit={handleUpdateProfile}>
+              <form onSubmit={handleSubmitUpdateProfile}>
                 <label htmlFor='text'>Nickname</label>
                 <input type='text' placeholder={myAccount.nickname} name='nickname' id='nickname' value={myAccount.nickname} onChange={handleChange} />
                 <label htmlFor='email'>E-mail</label>
@@ -187,7 +183,7 @@ export default function Account() {
               <button type='button' className={editPasswordBtn} onClick={handleEditPassword}>Edit Password</button>
             </div>
             <div className={editPasswordInfo}>
-              <form onSubmit={handleUpdatePassword}>
+              <form onSubmit={handleSubmitUpdatePassword}>
                 <label htmlFor='password'>Password</label>
                 <input type='password' placeholder='Enter new password' name='password' id='password' value={myAccount.password} onChange={handleChange} required />
                 <label htmlFor='passwordConfirm'>Confirm Password</label>

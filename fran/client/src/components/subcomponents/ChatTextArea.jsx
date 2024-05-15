@@ -1,5 +1,5 @@
 
-export function chatTextarea() {
+export function ChatTextarea() {
 
   function handleReply() {
 

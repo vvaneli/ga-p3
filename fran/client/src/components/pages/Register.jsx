@@ -3,10 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { setToken } from '../../lib/auth'
 
-// Components
-// import registerFormFields from '../subcomponents/FormAccountsFields.jsx'
+// Assets
 import logo from '../../assets/logo/fran_logo-solid_white_200w200h.svg'
-// import profileImg from '../../assets/icons/face_24dp_FILL0_wght400_GRAD0_opsz24.svg'
+import logoWord from '../../assets/logo/fran_wlogo_rgbW_350w120h.svg'
 
 export default function Register() {
 
@@ -47,36 +46,42 @@ export default function Register() {
   }
 
   return (
-    <><div className='wrapper'>
-      <aside className='quotes'>
-        <q>When I doubt myself, I have to remind myself that I built 2 fully functioning full stack apps from scratch in 10wks!</q>
-        <q>It took a long time to believe that I was hired not because of quotas, but because of my genuine skill as an engineer.</q>
-        <q>Today is the first time I feel like a real engineer, and it’s such a stressful and glorious feeling.</q>
-      </aside>
-      <div className='cover-logo'>
-        <img src={logo} alt='Upright Fran logo' />
-      </div>
-      <main className='authForm'>
-        <h1>Register</h1>
-        <form onSubmit={handleRegister}>
-          <label htmlFor='text'>Nickname</label>
-          <input type='text' placeholder='enter a nickname' name='nickname' id='nickname' value={registerFormData.nickname} onChange={handleChange} required />
-          <label htmlFor='email'>E-mail</label>
-          <input type='email' placeholder='add your email' name='email' id='email' value={registerFormData.email} onChange={handleChange} required />
+    <>
+      <div className='wrapper' id='register'>
+        <header>
+          <aside className='quotes'>
+            <q>When I doubt myself, I have to remind myself that I built 2 fully functioning full stack apps from scratch in 10wks!</q>
+            <q>It took a long time to believe that I was hired not because of quotas, but because of my genuine skill as an engineer.</q>
+            <q>Today is the first time I feel like a real engineer, and it&apos;s such a stressful and glorious feeling.</q>
+          </aside>
+          <img className='cover-logo-word' src={logoWord} alt='Fran logo' />
+        </header>
+      <div className='phone'>
+        <main id='app'>
+          <section className='auth-form'>
 
-          <label htmlFor='password'>Password</label>
-          <input type='password' placeholder='enter a password' name='password' id='password' value={registerFormData.password} onChange={handleChange} required />
-          <label htmlFor='passwordConfirm'>Confirm Password</label>
-          <input type='password' placeholder='confirm password' name='passwordConfirm' id='passwordConfirm' value={registerFormData.passwordConfirm} onChange={handleChange} required />
-          {/* <input className='' type='image' src={profileImg} name='profileImg' value={registerFormData.profileImg} alt='' /> */}
-          <label><input type='checkbox' name='legal' value={registerFormData.legal} onChange={handleChange} required />I agree</label>
-          {formError && <p><em>{formError}</em></p>}
-          <button type='submit'>Register</button>
-        </form>
-        <Link to={'/login'}>Log in</Link>
-        {/* <p><a href='#'>Log in</a></p> */}
-      </main>
+            <img className='cover-logo' src={logo} alt='Upright Fran logo' />
+            <h1>Register</h1>
+            <form onSubmit={handleRegister}>
+              <label htmlFor='text'>Nickname</label>
+              <input type='text' placeholder='nickname' name='nickname' id='nickname' value={registerFormData.nickname} onChange={handleChange} required />
+              <label htmlFor='email'>E-mail</label>
+              <input type='email' placeholder='email' name='email' id='email' value={registerFormData.email} onChange={handleChange} required />
+
+              <label htmlFor='password'>Password</label>
+              <input type='password' placeholder='password' name='password' id='password' value={registerFormData.password} onChange={handleChange} required />
+              <label htmlFor='passwordConfirm'>Confirm Password</label>
+              <input type='password' placeholder='confirm password' name='passwordConfirm' id='passwordConfirm' value={registerFormData.passwordConfirm} onChange={handleChange} required />
+              {formError && <p className='auth-form-error'>{formError}</p>}
+              <label className='input-checkbox-label'><input className='input-checkbox' type='checkbox' name='legal' value={registerFormData.legal} onChange={handleChange} required />I agree</label>
+              <button type='submit'>Sign up</button>
+            </form>
+            <Link to={'/login'} className='link-to'>Log in</Link>
+            {/* <p><a href='#'>Log in</a></p> */}
+          </section>
+        </main>
       </div>
+    </div >
     </>
   )
 }

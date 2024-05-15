@@ -1,0 +1,198 @@
+@import './colours.scss';
+@import './sizes.scss';
+
+/* FLEX C */
+
+.auth-form,
+.quotes,
+#index header,
+#login header,
+#register header {
+  display: flex;
+}
+
+.auth-form,
+form,
+#index header,
+#login header,
+#register header {
+  flex-direction: column;
+}
+
+.auth-form,
+#index header,
+#login header,
+#register header {
+  justify-content: center;
+}
+
+// .auth-form,
+form {
+  align-content: space-between;
+  // background-color: red;
+
+}
+
+/* FLEX I */
+form,
+.cover-logo-word {
+  flex-grow: 1;
+}
+
+/* LAYOUT ITEMS */
+
+body #index,
+body #login,
+body #register {
+  background-image: $gradBlack8Alpha;
+}
+
+#index header,
+#login header,
+#register header {
+  height: calc(100vh/2);
+}
+
+#index h1,
+#login h1,
+#register h1 {
+  margin-bottom: 1em;
+  color: $colourCream;
+}
+
+#index #app,
+#login #app,
+#register #app {
+  background-image: $grad4v;
+}
+
+.auth-form {
+  height: $viewHeight;
+}
+
+.quotes {
+  text-align: center;
+  // height: calc(100vh / 4);
+  // height: 200px;
+  box-sizing: border-box;
+  // background-color: red;
+}
+
+q {
+  @include vip-font;
+  font-weight: 100;
+  padding: 2em 2.5em 0 2.5em;
+}
+
+// q:first-child {
+//   color: red;
+//   // padding-left: 2em;
+// }
+
+// q:last-child {
+//   color: red;
+// }
+
+.cover-logo-word {
+  margin: 0 auto;
+  min-width: 200px;
+  max-width: 350px;
+  width: 50%;
+
+}
+
+/* FORM */
+
+.cover-logo {
+  width: 50px;
+  rotate: 180deg;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.auth-form {
+  text-align: center;
+  width: $viewWidth;
+}
+
+label {
+  display: none;
+}
+
+input,
+.auth-form button {
+  display: block;
+  margin: 0 auto;
+}
+
+input {
+  width: 80%;
+  background-color: $colourTransparent;
+  border: 5px solid $colourCream7;
+  text-align: center;
+  box-sizing: border-box;
+  color: $colourConsole;
+  font-size: 1.2em;
+  overflow: visible;
+  margin-bottom: 16px;
+}
+
+input,
+input:focus,
+.auth-form button {
+  opacity: 80%;
+  padding: 0.8em;
+  border-radius: 2em;
+  outline: none;
+}
+
+.auth-form button {
+  // cursor: pointer;
+  border: 0;
+  font-size: 1em;
+  width: 40%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $colourSteel;
+  // color: $colourSteel;
+  opacity: 65%;
+}
+
+.auth-form button:hover {
+  background-color: $colourSteel;
+  color: $colourCream;
+
+  opacity: 100%;
+}
+
+.input-checkbox-label {
+  display: inline;
+  opacity: 100%;
+  font-size: 0.9em;
+  font-weight: 300;
+
+}
+
+input[type=checkbox] {
+  width: 20px;
+  margin-right: 0.4em;
+  display: inline;
+}
+
+.auth-form-error {
+  font-size: 0.8em;
+  display: block;
+  height: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: $colourSteel;
+}
+
+.link-to {
+  padding: 1em;
+  text-transform: uppercase;
+  // opacity: 100%;
+  // color: $colourCream;
+  // color: black;
+  font-size: 0.8em;
+}

@@ -9,7 +9,15 @@ export default function Fran() {
 
   return (
     <>
-      <NavMenu />
+      <div className='wrapper' id=''>
+        <div className='phone secure-route'>
+          <main id='app'>
+            <NavMenu />
+            <h1>H1</h1>
+            {(state.successMsg) && <p>{state.successMsg}</p>}
+          </main>
+        </div>
+      </div>
 
     </>
   )

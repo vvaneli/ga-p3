@@ -1,13 +1,23 @@
 @import './colours.scss';
 @import './sizes.scss';
+@import './fonts.scss';
 
-// APP
-@mixin app {
-  font-family: "Merriweather Sans", sans-serif;
-  font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.05em;
+
+/* FLEX C */
+.navmenu-section,
+.navmenu {
+  display: flex;
 }
+
+.navmenu-section,
+.navmenu {
+  flex-direction: column;
+}
+
+.navmenu {
+  justify-content: space-between;
+}
+
 
 .menu-icon {
   width: 2.2em;
@@ -22,7 +32,7 @@
   padding: 1em 0 20px 0;
   background: $colourSteel;
   box-shadow: calc($viewWidth / 2) 0 0 0 $colourShadow; // x offset, y offset, blur, spread
-  height: 100%;
+  height: $viewHeight;
   z-index: 1;
   top: 0;
   left: calc((100vw - $viewWidth) / 2);
@@ -63,7 +73,7 @@
   background-color: $colourSteel;
   border: 0;
   cursor: pointer;
-  @include app;
+  @include app-font;
   opacity: 60%;
   font-weight: 200;
 }

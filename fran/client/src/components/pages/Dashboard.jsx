@@ -33,11 +33,15 @@ export default function Dashboard() {
   // }, [])
   return (
     <>
-
-          <NavMenu />
-          <h1>Dashboard</h1>
-          {(state.successMsg) && <p>{state.successMsg}</p>}
-
+      <div className='wrapper' id='dashboard'>
+        <div className='phone secure-route'>
+          <main id='app'>
+            <NavMenu />
+            <h1>Dashboard</h1>
+            {(state.successMsg) && <p>{state.successMsg}</p>}
+          </main>
+        </div>
+      </div>
     </>
   )
 }
