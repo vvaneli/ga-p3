@@ -16,7 +16,7 @@ export default function Account() {
   // set data from DB
   const [myAccount, setMyAccount] = useState([])
   // set new data to update DB
-  const [profileFormData, setProfileFormData] = useState([])
+  // const [profileFormData, setProfileFormData] = useState([])
   // show/hide profile edit fileds
   const [editProfileBtn, setEditProfileBtn] = useState('')
   const [showProfileInfo, setShowProfileInfo] = useState('')
@@ -91,8 +91,10 @@ export default function Account() {
       setFormError(error.response.data.message)
     }
   }
+  // Delete account
 
-  async function deleteAccount() {
+  async function deleteAccount(e) {
+    e.preventDefault()
     try {
       await axios.delete(`/api/account`, {
         headers: {
@@ -108,39 +110,42 @@ export default function Account() {
   }
 
   function handleChange(e) {
+    e.preventDefault()
     setMyAccount({ ...myAccount, [e.target.name]: e.target.value })
     setFormError('')
   }
 
-  function handleEditProfile() {
+  function handleEditProfile(e) {
+    e.preventDefault()
     setEditProfileBtn('hide')
     setShowProfileInfo('hide')
     setEditProfileInfo('')
     setSaveProfileBtn('')
   }
 
-  function handleExitEditProfile() {
+  function handleExitEditProfile(e) {
+    e.preventDefault()
     setEditProfileBtn('')
     setShowProfileInfo('')
     setEditProfileInfo('hide')
     setSaveProfileBtn('hide')
   }
 
-  function handleEditPassword() {
+  function handleEditPassword(e) {
+    e.preventDefault()
     setEditPasswordBtn('hide')
     setShowPasswordInfo('hide')
     setEditPasswordInfo('')
     setSavePasswordBtn('')
   }
 
-  function handleExitEditPassword() {
+  function handleExitEditPassword(e) {
+    e.preventDefault()
     setEditPasswordBtn('')
     setShowPasswordInfo('')
     setEditPasswordInfo('hide')
     setSavePasswordBtn('hide')
   }
-
-
 
   return (
     <>
@@ -165,9 +170,9 @@ export default function Account() {
             <div className={editProfileInfo}>
               <form onSubmit={handleUpdateProfile}>
                 <label htmlFor='text'>Nickname</label>
-                <input type='text' placeholder={myAccount.nickname} name='nickname' id='nickname' value={profileFormData.nickname} onChange={handleChange} />
+                <input type='text' placeholder={myAccount.nickname} name='nickname' id='nickname' value={myAccount.nickname} onChange={handleChange} />
                 <label htmlFor='email'>E-mail</label>
-                <input type='email' placeholder={myAccount.email} name='email' id='email' value={profileFormData.email} onChange={handleChange} />
+                <input type='email' placeholder={myAccount.email} name='email' id='email' value={myAccount.email} onChange={handleChange} />
                 {formError && <p><em>{formError}</em></p>}
                 <button type='submit' className={saveProfileBtn}>Save Profile</button>
               </form>
@@ -184,9 +189,9 @@ export default function Account() {
             <div className={editPasswordInfo}>
               <form onSubmit={handleUpdatePassword}>
                 <label htmlFor='password'>Password</label>
-                <input type='password' placeholder='Enter new password' name='password' id='password' value={profileFormData.password} onChange={handleChange} required />
+                <input type='password' placeholder='Enter new password' name='password' id='password' value={myAccount.password} onChange={handleChange} required />
                 <label htmlFor='passwordConfirm'>Confirm Password</label>
-                <input type='password' placeholder='Confirm new password' name='passwordConfirm' id='passwordConfirm' value={profileFormData.passwordConfirm} onChange={handleChange} required />
+                <input type='password' placeholder='Confirm new password' name='passwordConfirm' id='passwordConfirm' value={myAccount.passwordConfirm} onChange={handleChange} required />
                 {formError && <p><em>{formError}</em></p>}
                 <button type='submit' className={savePasswordBtn}>Save Password</button>
               </form>
@@ -194,16 +199,17 @@ export default function Account() {
             </div>
           </section>
 
-          {/* TAGS */}
-          <section className='account-tags'>
-            {(!myAccount.tags) || (myAccount.tags.length <= 0)
-              ? <button>Create tags for your journal entries</button>
-              : <p>Tags: {myAccount.tags}</p> //! map 
-            }
-            {/* <p>Id: {myAccount._id}</p> */}
-          </section>
+          {/* TAGS ––––––– TO DO ––––––––– */}
+          {/* <section className='account-tags'> */}
+          {/* {(!myAccount.tags) || (myAccount.tags.length <= 0) */}
+          {/* ? <button>Create tags for your journal entries</button> */}
+          {/* : <p>Tags: {myAccount.tags}</p> //! map  */}
+          {/* } */}
+          {/* </section> */}
 
           {/* DELETE ACCOUNT */}
+          {/* <p>Id: {myAccount._id}</p> */}
+
           <section className='account-delete'>
             <button type='button' onClick={deleteAccount}>Delete Account</button>
           </section>
