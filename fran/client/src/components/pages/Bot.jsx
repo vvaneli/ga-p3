@@ -9,7 +9,7 @@ import { chatAttributionError } from '../../../../database/data/chatAttributionE
 export default function Bot() {
 
   const fullConvo = chatAttributionError
-  // console.log(fullConvo)
+  console.log(fullConvo)
 
   // index counter to keep track of conversation progress
   const [convoIndex, setConvoIndex] = useState(0)
@@ -44,7 +44,7 @@ export default function Bot() {
 
   }
 
-  function handleSaveJournal() {
+  function handleSubmitReply() {
 
   }
 
@@ -53,20 +53,14 @@ export default function Bot() {
       <NavMenu />
       <h1>Bot</h1>
       <div>
-      <form onSubmit={handleSaveJournal}>
-          <label htmlFor='text'>Nickname</label>
-          <input type='text' placeholder='enter a nickname' name='nickname' id='nickname' value={registerFormData.nickname} onChange={handleChange} required />
-          <label htmlFor='email'>E-mail</label>
-          <input type='email' placeholder='add your email' name='email' id='email' value={registerFormData.email} onChange={handleChange} required />
-
-          <label htmlFor='password'>Password</label>
-          <input type='password' placeholder='enter a password' name='password' id='password' value={registerFormData.password} onChange={handleChange} required />
-          <label htmlFor='passwordConfirm'>Confirm Password</label>
-          <input type='password' placeholder='confirm password' name='passwordConfirm' id='passwordConfirm' value={registerFormData.passwordConfirm} onChange={handleChange} required />
-          {/* <input className='' type='image' src={profileImg} name='profileImg' value={registerFormData.profileImg} alt='' /> */}
-
-          {formError && <p><em>{formError}</em></p>}
-          <button type='submit'>Register</button>
+        <form onSubmit={handleSubmitReply}>
+          <label htmlFor='text'></label>
+          <p>{fullConvo[convoIndex]}</p>
+          {/* <input type='button' name='Yes' id='' value='Yes' onChange={handleBtnChoice} />
+          <input type='button' name='No' id='' value='No' onChange={handleBtnChoice} /> */}
+          {/* Chat input */}
+          <textarea name='reply' id='reply' value='' autoFocus onChange={handleReply} required placeholder='Type your reply to Fran'></textarea>
+          <button type='submit' disabled={endFullConvo} onClick={nextConvoIndex}>Reply</button>
         </form>
       </div>
     </>
