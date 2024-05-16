@@ -11,18 +11,22 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "serve": "npx nodemon server.js",
-    "seed": "node database/seeds.js"
+    "seed": "node database/seeds.js",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm i --only=dev && npm i && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vitejs/plugin-react-swc": "^3.6.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.4",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "vite": "^5.2.11"
   }
 }

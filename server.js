@@ -9,6 +9,13 @@ import mongoose from 'mongoose'
 import 'dotenv/config'
 import router from './lib/router.js'
 
+// For Deployment
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 const app = express()
 const { PORT, CONNECTION_STRING } = process.env
 // console.log(process.env)
@@ -19,6 +26,12 @@ app.use(morgan('dev'))
 
 // Routes
 app.use('/api', router)
+
+// For Deployment
+app.use(express.static(path.join(__dirname, 'client', 'dist')))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+})
 
 // Start server
 async function startServers() {
