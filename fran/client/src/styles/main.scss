@@ -18,6 +18,11 @@
 @import './partials/phone.scss';
 @import './partials/themeDark.scss';
 
+// ? Pages
+@import './partials/dashboard.scss';
+@import './partials/journalsList.scss';
+@import './partials/journalPage.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -45,6 +50,9 @@ body {
   // background: red;
   // max-width: $viewWidth;
   // margin: 0 auto;
+  height: 100vh;
+  background-image: url('../assets/img/back_abstract_mono.jpg');
+  background-size: cover;
 }
 
 .hide {
@@ -65,5 +73,3 @@ a:visited {
 button {
   cursor: pointer;
 }
-
-

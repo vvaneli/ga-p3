@@ -145,6 +145,9 @@ export default function Account() {
 
   return (
     <>
+          <div className='wrapper' id=''>
+        <div className='phone secure-route'>
+          <main id='app'>
       <Header />
       <NavMenu />
       <h1>Account</h1>
@@ -216,7 +219,9 @@ export default function Account() {
           :
           <p>Loading data...</p>
       }
-
+          </main>
+        </div>
+      </div>
     </>
   )
 }

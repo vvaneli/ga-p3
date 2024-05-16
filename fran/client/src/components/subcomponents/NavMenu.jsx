@@ -30,7 +30,7 @@ export default function NavMenu() {
   return (
     <>
       <div className='wrapper' id=''>
-        <main id='app'>
+      
         {/* <nav className='navmenu navOpen'> */}
         <img className='menu-icon' src={menu} onClick={openNav} alt='navigation menu' />
         <nav className={navState}>
@@ -47,11 +47,11 @@ export default function NavMenu() {
             <button className='navmenu-item logoutBtn' type='button' onClick={handleLogout}>Log out</button>
           </section>
           <section className='navmenu-section'>
+          <Link to={'/dashboard'}>
             <img className='navmenu-logo' src={logo} alt='logo' />
+            </Link>
           </section>
         </nav>
-      </main>
-
       </div>
 
     </>

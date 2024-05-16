@@ -4,16 +4,19 @@
 $colourConsole: rgb(3, 34, 48);
 $colourSteel: rgb(0, 67, 102);
 $colourCream: rgb(247, 237, 237);
+$colourCream6: rgba(247,237,237, 0.6);
 $colourCream7: rgba(247,237,237, 0.7);
 // $colourSterling: rgb();
+$colourCarbon: rgb(21,21,21);
 
 $colourBlue: rgb(19, 214, 235);
 $colourGreen: rgb(139, 243, 151);
 $colourPink: rgb(249, 151, 191);
 $colourViolet: rgb(106, 34, 254);
 
-$colourShadow: rgba(0, 0, 0, 0.3);
+$colourShadow: rgba(0, 0, 0, 0.7);
 $colourTransparent: rgba(0,0,0,0);
+
 
 $grad2hBV: linear-gradient(to right, $colourBlue, $colourViolet);
 $grad2hGV: linear-gradient(to right, $colourGreen , $colourViolet);

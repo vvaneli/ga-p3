@@ -2,8 +2,8 @@
 @import './sizes.scss';
 @import './fonts.scss';
 
-
 /* FLEX C */
+
 .navmenu-section,
 .navmenu {
   display: flex;
@@ -18,39 +18,61 @@
   justify-content: space-between;
 }
 
+/* LAYOUT ITEMS */
 
-.menu-icon {
-  width: 2.2em;
-  position: fixed;
-  margin: 1em 0.5em;
-  cursor: pointer;
+.logoutBtn,
+.navmenu {
+  background: $colourSteel;
+  @include app-font;
+  color: $colourCream7;
 }
 
 .navmenu {
   text-align: center;
   box-sizing: border-box;
-  padding: 1em 0 20px 0;
-  background: $colourSteel;
+  padding: 0 0 2em 0;
   box-shadow: calc($viewWidth / 2) 0 0 0 $colourShadow; // x offset, y offset, blur, spread
   height: $viewHeight;
   z-index: 1;
-  top: 0;
-  left: calc((100vw - $viewWidth) / 2);
-  position: fixed;
 }
+
+.menu-icon,
+.navmenu {
+  position: fixed;
+  top: calc((100vh - $viewHeight) / 2);
+  left: calc((100vw - $viewWidth) / 2);
+}
+
+.menu-icon,
+.closeBtn {
+  width: 2.2em;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.menu-icon {
+  margin: 0 0.5em;
+}
+
+.closeBtn {
+  margin-left: auto;
+  padding-right: 10px;
+  padding-bottom: 2em;
+  opacity: 35%;
+}
+
+/* open close */
 
 .navOpen {
   min-width: calc($viewWidth / 2);
-  transition: 0.5s;
+  // transition: 0.5s;
 }
 
 .navClose {
   width: 0;
   overflow-x: hidden;
-  transition: 0.5s;
+  // transition: 0.5s;
 }
-
-.navmenu-section {}
 
 .navmenu hr {
   width: 10%;
@@ -70,33 +92,11 @@
 }
 
 .logoutBtn {
-  background-color: $colourSteel;
   border: 0;
-  cursor: pointer;
-  @include app-font;
+  font-size: 0.8em;
   opacity: 60%;
   font-weight: 200;
+  text-transform: uppercase;
+
 }
 
-/* open close */
-// .navmenu {
-//   transition: 0.5s;
-//   z-index: 1;
-// }
-
-
-
-.closeBtn {
-  // position: absolute;
-  // top: 0;
-  // right: 50vw;
-  // font-size: 36px;
-  // margin-left: 50px;
-  width: 2.2em;
-  opacity: 35%;
-  margin-left: auto;
-  padding-right: 1em;
-  padding-bottom: 2em;
-  ;
-  cursor: pointer;
-}

@@ -1,0 +1,9 @@
+@import './colours.scss';
+@import './sizes.scss';
+@import './fonts.scss';
+
+#dashboard .secure-route {
+  h1 {
+    margin-top: calc($viewHeight * .1);
+  }
+}

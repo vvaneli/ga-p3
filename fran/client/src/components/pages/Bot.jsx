@@ -50,6 +50,10 @@ export default function Bot() {
 
   return (
     <>
+          <div className='wrapper' id='bot'>
+        <div className='phone secure-route'>
+          <main id='app'>
+
       <NavMenu />
       <h1>Bot</h1>
       <div>
@@ -62,6 +66,9 @@ export default function Bot() {
           <textarea name='reply' id='reply' value='' autoFocus onChange={handleReply} required placeholder='Type your reply to Fran'></textarea>
           <button type='submit' disabled={endFullConvo} onClick={nextConvoIndex}>Reply</button>
         </form>
+      </div>
+      </main>
+        </div>
       </div>
     </>
   )

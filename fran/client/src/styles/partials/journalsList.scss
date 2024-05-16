@@ -1,0 +1,29 @@
+@import './colours.scss';
+@import './sizes.scss';
+@import './fonts.scss';
+
+.journal-details {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 800;
+  opacity: 60%;
+
+}
+
+.journal-list-date{
+  font-style: italic;
+  font-size: 0.8em;
+  padding: 1em 0;
+}
+
+#journals {
+  h2 {
+    padding-bottom: 1em;
+  }
+  article {
+    margin: 2em 0;
+    padding: 2em;
+    box-sizing: border-box;
+    background-color: $colourCream6;
+  }
+}

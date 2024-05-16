@@ -1,5 +1,6 @@
 @import './colours.scss';
 @import './sizes.scss';
+@import './fonts.scss';
 
 /* FLEX C */
 
@@ -41,10 +42,20 @@ form,
 
 /* LAYOUT ITEMS */
 
+#root {
+  // background-color: green;
+}
+
 body #index,
 body #login,
 body #register {
-  background-image: $gradBlack8Alpha;
+  // background-image: $gradBlack8Alpha;
+  height: 150vh;
+  background-image: url('../assets/img/back_abstract_mono.jpg');
+  background-size: cover;
+  // background-position: center;
+  // background-size: 300vw;
+  // background-repeat: no-repeat;
 }
 
 #index header,
@@ -75,7 +86,8 @@ body #register {
   // height: calc(100vh / 4);
   // height: 200px;
   box-sizing: border-box;
-  // background-color: red;
+  // @include app-font;
+  color: $colourCream7;
 }
 
 q {
