@@ -46,9 +46,9 @@ export default function Login() {
       <div className='wrapper' id='login'>
         <header>
           <aside className='quotes'>
-            <q>When I doubt myself, I have to remind myself that I built 2 fully functioning full stack apps from scratch in 10wks!</q>
-            <q>It took a long time to believe that I was hired not because of quotas, but because of my genuine skill as an engineer.</q>
-            <q>Today is the first time I feel like a real engineer, and it&apos;s such a stressful and glorious feeling.</q>
+            <q>When I doubt myself, I have to remind myself that I built a fully functioning full stack apps from scratch in 5 weeks!</q>
+            <q>It took years to believe that I was hired not because of quotas, but because of my genuine skill as an engineer.</q>
+            <q>This is the first time I feel like a real engineer. What a stressful and glorious feeling.</q>
           </aside>
           <img className='cover-logo-word' src={logoWord} alt='Fran logo' />
         </header>
