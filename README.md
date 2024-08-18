@@ -1,4 +1,4 @@
-#Fran
+# Fran
 __'Fran' is a journal app for mental wellbeing, aimed at tech developers.__
 
 ## Deployment
