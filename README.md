@@ -1,6 +1,9 @@
 # Fran
 __'Fran' is a journal app for mental wellbeing, aimed at tech developers.__
 
+![Homepage](https://github.com/user-attachments/assets/4676c779-e511-4e20-99d5-1bfc9f921162)
+
+
 ## Deployment
 Try it out: https://fran-app-23aa0c351357.herokuapp.com/
 
